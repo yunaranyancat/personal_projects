@@ -1,0 +1,1 @@
+The first project will be the creation of a simple Python keylogger. At first I will start with using examples taken from the Internet, and then modify for my own purposes. DISCLAIMER : This is for educational purposes only. I will take no responsibility for any misuse or illegal activities done by this script. 
