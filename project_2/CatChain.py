@@ -4,7 +4,7 @@ import random
 
 #constant(s)
 one_min_to_sec = 60
-ynChain = []
+CatChain = []
 
 #create a Block object
 class Block:
@@ -58,31 +58,48 @@ def generateBlock(list_of_blocks):
     nextIndex = lastBlock.index + 1
     nextTimestamp = time.time()
     nextHash = newHash(nextIndex, lastBlock.currentHash, nextTimestamp,generateCat())
-    return Block(nextIndex,lastBlock.currentHash,dataBlock,nextTimestamp,nextHash)
+    return Block(nextIndex,lastBlock.currentHash,nextTimestamp,dataBlock,nextHash)
 
 def validBlock(newBlock, lastValidBlock):
     if lastValidBlock.index + 1 != newBlock.index:
-        print("Block Index Not Valid!")
+        print("Meow!,Block Index Not Valid!")
         return False
     elif lastValidBlock.currentHash != newBlock.prevHash:
-        print("Last Hash Does Not Match!")
+        print("Meow!,Last Hash Does Not Match!")
         return False
     elif newHashBlock(newBlock) != newBlock.currentHash:
-        print("Hash Do Not Match!")
+        print("Meow!,Hash Do Not Match!")
         return False
     else:
-        print("Valid Block!")
+        print("Meow!,Valid Block!")
         return True
 
+#chain = list_of_blocks
+def validCatChain(chain):
+    if chain[0].data != "genesis":
+        print("Meow! Wrong chain..")
+        return False
 
-
-
-
-
+    for i in range(1,len(chain)):
+        if not validBlock(chain[i], chain[i-1]):
+            return False
+        else:
+            return True
 
 #TEST
 #add genesis block into the list
-ynChain.append(newGenesisBlock())
-#print(ynChain)
-block1 = generateBlock(ynChain)
-print(block1)
+CatChain.append(newGenesisBlock())
+#print(CatChain)
+x = 0
+while (x<=10):
+    DataCat = generateBlock(CatChain).data
+    x = x+1
+    print("New block created : "+str(DataCat))
+
+print(len(CatChain))
+
+# catStr = generateCat()
+# print(type(catStr))
+#
+# aCatBlock = generateBlock(CatChain)
+# print(type(aCatBlock.data))
