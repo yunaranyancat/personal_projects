@@ -92,11 +92,12 @@ CatChain.append(newGenesisBlock())
 #print(CatChain)
 x = 0
 while (x<=10):
-    DataCat = generateBlock(CatChain).data
+    BlockCat = generateBlock(CatChain)
+    DataCat = BlockCat.data
+    HashCat = BlockCat.currentHash
     x = x+1
-    print("New block created : "+str(DataCat))
-
-print(len(CatChain))
+    print("New block created : "+DataCat+" : "+HashCat)
+    CatChain.append(Block)
 
 # catStr = generateCat()
 # print(type(catStr))
