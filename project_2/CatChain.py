@@ -97,7 +97,7 @@ while (x<=10):
     HashCat = BlockCat.currentHash
     x = x+1
     print("New block created : "+DataCat+" : "+HashCat)
-    CatChain.append(Block)
+    CatChain.append(BlockCat)
 
 # catStr = generateCat()
 # print(type(catStr))
