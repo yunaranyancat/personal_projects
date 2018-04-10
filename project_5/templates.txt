@@ -1,0 +1,39 @@
+What is a template?
+- Part of the String module
+- Allows for data to change without having to edit the application
+- Can be modified with subclasses
+
+How it works?
+- Takes a string as a template with placeholder variables to be over written
+- Substitute the values in with a dictionary. The key being the placeholder name
+- Placeholder names follow the same rules as variable naming in Python
+- Template("$name is friends with $friend")
+
+Template Errors
+- No Placeholder match, will result in a KeyError in which the template wasn't given a value for a Placeholder
+- Bad placeholder, will result in a ValueError. The placeholder started with an invalid character. (usually a number)
+
+safe_substitute
+- Templates can handle these errors and give us back a string still if we use the method safe_substitute
+- You also get the placeholders in the returned string if there is an error with it
+Eg : Template("$name had $money"), output: "Jim had $money"
+
+Custom delimiters
+- You can also set a custom delimiter for the placeholder variables by overriding the Template Class.
+- Let's change our delimiter to the Hash symbol (#)
+- Let's edit our cart.py
+
+Why use one?
+- Saves time typing and reduces code size
+- Easy to implement custom templates from command line. Eg: File format : MyPhoto_$n$ext = MyPhoto_0.jpg, MyPhoto_1.jpg, etc
+- Extremely useful for webpages, as a webpage generally always follows the same template but with different data
+- Why not just use the .format() method?
+ - It provides safe substitution and does not crash if there are Errors
+
+Extra info
+- if you need to use the character that is your delimiter, you can escape it with two repeating delimiters.
+Eg : "you owe me $$0" Which would output: you owe me $O
+- also when creating a subclass you can also override the Regular Expression for the template, the variable idpattern is set to the expression: "[_a-z][_a-z0-9]*" by default.
+- to attach a string to the end of your placeholder you need to specify the placeholder name in {} brackets.
+Eg: Template("The ${place}yard is far away") with the value "ship"
+The output is : The shipyard is far away
