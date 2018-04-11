@@ -1,0 +1,75 @@
+What is a Argparse?
+
+- Argparse is a module that allows for neat and familiar option and argument parsing for our python programs
+- Automatically generates the usage
+- Has inbuilt help functions
+- Auto formats the output for the console
+
+How it works?
+
+- interfaces with the python system module to grab the arguments from the command line
+- supports checking and making sure required arguments are provided
+- python fibn.py 10
+- program <fibonacci num>
+
+   parser = argparse.ArgumentParser()
+   parser.add_argument("num", help="help text",type=int)
+   args = parser.parse_args()
+
+   print args.num
+
+Positional Argument
+
+- Positional arguments are required arguments that we need for our program to compelete
+- Positional arguments do not require the dash(-) because it is not an option
+- In the case of the Fibonacci program this is the number num to count up to.
+
+Fibonacci program
+
+- Let's create a fibn.py
+- Will take the Fibonacci number to output using a position argument
+- add a help output for the help command to show
+
+Optional arguments
+- As their title indicates, the optional arguments are optional.
+- The -h option is already inbuilt by default
+- We can create as many as we like and argparse will handle it
+- Like the positional arguments the help will be automatically added to the help output
+- parser.add_argument("--quiet", help="help text",action="store_true")
+
+Fibonacci Program v2
+
+- Let's modify fibn.py
+- Will take the Fibonacci number to output using a position arguments
+- Optional output number to file. "--output"
+- Add a short option as well. "-o"
+- Add help for the optional output
+
+Mutually Exclusive Arguments
+- You can select one option or another option, but not both!
+- This can be done with a group
+- Automatically generates an output telling the user you can only pick one, should they try to use both
+
+Fibonacci Program v3
+
+- Let's modify fibn.py
+- Will take the Fibonacci number to output
+- Then we will set up that you can choose to either have a verbose output or a quiet output but not both
+- We will use a mutually exclusive group for this
+
+Why use it?
+
+- Argparse makes it easy to handle command line options and arguments
+- Comes default with python
+- Generates & formats usage and help output
+- Allows dynamic data input to change the output of your program
+
+Extra info
+- If you wish to call a function with an option then you must create a subclass of argparse.Action, you must supply a __call__ method.
+(usually easier to just use an if statement)
+- nargs='+', or nargs=2, etc
+- The Python Docs have a huge tutorial on how to use Argparse to it's full abilities.
+
+Docs
+
+https://docs.python.org/3/library/argparse.html
