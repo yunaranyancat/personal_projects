@@ -1,0 +1,74 @@
+What is a regular expression?
+
+- A regular expression or RegEx for short is a Pattern matching Language.
+- The Regular language was invented by American Mathematician Stephen Kleene.
+- Used of Searches, Find, Replace, validation.
+- Most programming languages support RegEx and others require additional libraries
+- The Expression is a string of characters. There are two types of characters Metacharacters which have
+ a special meaning, and Regular characters which have literal meaning.
+ - Can be simple and easy to learn, However, takes a long time to master and use advanced expressions
+
+ How it works!
+- There is a few different algorithms that regular expressions can use. the most common being a DFA or (Deterministic Finite Automaton)
+- The DFA algorithm is modified to use a pattern to specify it's computation rules.
+- The DFA algorithm takes 0(2^m) to construct the Regular Expression (Where m is the length of the RegEx Pattern) then O(n) time to search a string of length n.
+
+Metacharacter
+
+. Matches any single character (EG: ".at" would match cat, hat, sat)
+
+[ ] Matches a single character contained with the brackets (EG: "[ch]at" would match cat,hat. but not sat)
+  (you can use ranges too[a-z])
+
+[^ ] Mathes a single character NOT contained within the brackets (EG: "[^c]at" would match hat, sat. but not cat)
+
+^ Matches the expression if at the start of the string (EG: "^.at" would match cat, hat, sat if located at the start of the string)
+
+$ Same as above however at the end (EG: ".at$" would match cat,hat,sat if located at the end of the string.)
+
+( ) Contains sub expressions (think BODMAS/BOMDAS)
+
+* Matches the preceding element zero or more times (EG: "c.*" would match any word starting with c, cat, coat, class, etc..)
+
+Matching and Searching
+- Python gives us two base methods to use our regular expressions with.
+
+- match() - Checks to see if the expression matches the entire string
+
+- search() - Checks to see if there is match anywhere in the string
+
+regtest Program
+
+- A basic test of match and search
+- When constructing an expression we use a raw string to avoid problems with python
+- This is just an r before the string;r'pattern'
+- Let's create a regtest.py
+
+Lookup Program
+
+- Let's create lookup.py
+- A command line program that we use to search a text file for a certain word
+
+Option Flags
+
+re.I - ignore case matching
+re.M - Makes $ match the end of a line and ^ the start of a line
+re.S - Makes . (dot) Match any character even the new line character
+re.U - Interprets in Unicode.
+re.X - Ignores whitespace within the pattern
+
+Search and Replace
+- Python implements search and replace in a nice little method called sub() (Subtitute)
+- sub(pattern, repl, string, max=0)
+- Sub takes a pattern and a string to replace it with and a string to search through. you can limit the amount of replaces by overwriting the max variables.
+
+Why use it?
+
+- Sometimes in your programming career you will need to search/match/replace for text information . There is no point re-inventing the wheel and regular expressions can run really quick.
+- Most programming languages use the same RegEx pattern syntax. So it's useful to understand what the patterns mean, and how they're constructed.
+
+Extra Info
+- When using the same pattern multiple times in a for loop, make your program more efficient by compiling the expression. (Creating the expression takes the longest time and more cycles on the CPU)
+EG:
+  myReg = re.compile(pattern)
+  result = myReg.match(string)
