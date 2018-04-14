@@ -1,0 +1,58 @@
+What is Multithreading?
+
+- The challenge of Threads is that they can be hard to manage. Especially when a piece of data is being used by more than one thread.
+- Threads can be used just for quick tasks like calculating a result from an algorithm or for running slow processes in the background while the program continues.
+- We can also create many threads to try and find an answer faster. Perhaps we need to hash 100 passwords with md5, we could make 5-10 threads each hashing a password making the total time 5-10 times faster.
+
+How it works?
+
+- We already use on thread in our programs. The Main thread.
+- When we create a new thread it runs along side our main thread.
+- On windows it's easy to open your task manager and see how many threads programs are using.
+
+timer Program
+- A basic timer program essentially hello world for threading
+- Each timer thread will output the current time
+- Then wait a certain time before outputting again
+
+Asynchoronous Tasks
+
+- Some tasks can take a long time. Input and output for example can take a long time
+- Some programs are required to be real time.
+ So we can setup Threads to run in the background to write a file or search for items
+  while the user can still interact with the interface or command line.
+
+Custom Threads
+ - We can make our own thread subclasses.
+ - These are useful for making task specific threads that we can simply reuse as well as add features to the thread
+ - Can make managing harder or more simple depending on how advanced we make our threading
+
+ AsyncWrite Program
+
+ - A basic threading program that writes a file in the background
+ - A custom thread class will be created to take a string and save it to a file in the background
+ - We will make it sleep for a second so we can see it working
+
+ Locks
+
+ - Locks can be a hard topic to grasp. The challenge with locks is knowing when to us one.
+ - We use a lock to lock access to one thread
+ - Because threads run simultaneously there is no guarantee that both threads wont try to use a variable at the same time
+
+ Modified Timer Program
+ - Similar to our previous timer program, however we will add a lock that will lock the thread currently printing the time.
+ - This program is mainly an example of what a lock does.
+
+ Semaphores
+
+ - Semaphores like locks restrict access to a thread
+ - However semaphores can allow more than one lock to be acquired
+ - You may have 10 threads running, but you only want 2 or 3 to have access to a piece of data at a time.
+
+When to use Threading
+
+- Threading isn't the answer to  every problem.
+- If your program logic has to run in a sequence, then threads wont help you out.
+- If you are writing a GUI, then you want at least two threads. One for the GUI and one to do all the work in the background. To avoid the GUI being unresponsive.
+- If the program is running on a CPU with only one core, then there will be no performance improvement as the threads will be time split on the once core.
+- it's great for servers that deal with TCP connections to be multi-Threaded as you want to be able to handle more than 1 request at a time.
