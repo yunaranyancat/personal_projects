@@ -1,0 +1,84 @@
+What is net code?
+
+- Networking is a huge field, so we will stick to high level concepts that are important for programming.
+- Networking is the concept of two programs communicating across a network. Whether it be from client-client, client-server or even client to itself.
+
+- Client - An end device interfacing with a human
+- Server - A device providing a service for clients.
+
+- Client/Server model
+- Most common.
+- Clients connect in to the server to get information they require.
+- Web browser(client) connects to the Google Website(Server)
+- Peer-to-Peer model
+- Useful for services that don't have to be constantly available. (Skype, Game Servers)
+- Clients connect to other clients without the use of a central server.
+- 'Is actually a Client/Server model at it's core , just client's are acting as server and client'
+
+Terminology :
+Address : An ip address, eg: "127.0.0.1"
+
+
+ Port - A port number, eg 5000
+
+ Port numbers 1-1024 are reserved for core protocols, try use something above 1024 but below 65535.
+
+Sockets
+
+- Sockets are the programming abstractions for connections
+- They allow us to communicate in a bidirectional manner.
+- Once they are connected or ready to transmit
+- We can use them to send data and receive data
+- They implement the common transport protocols TCP and UDP.
+
+Socket Methods
+
+- socket(socket_family, socket_type)
+- bind((hostname, port))
+Bind takes a tuple of a host address and port
+- listen()
+ Starts listening for TCP connections
+- accept()
+ Accepts a connection when found.(returns new socket)
+- connect((hostname,port))
+ Takes a tuple of the address and port.
+- recv(buffer)
+ Tries to grab data from a TCP connection. (Waits)
+ The buffer size determines how many bytes of data to receive at a time
+- send(bytes)
+ attempts to send the bytes given to it
+- close()
+ Closes a socket/connection and frees the port.
+
+TCP
+
+- Transmission Control Protocol
+- Reliable Connection based Protocol
+- Ordered & Error checked (simple checksum)
+- Used by Web Browsers, Email, SSH, FTP, etc.
+
+Capitalize Sentence Program
+- Let's create a basic client server program that uses TCP to connect and send text to a server , the server then replies with that text capitalized.
+- We will build the Server first then the Client
+- tcpServer.py and tcpClient.py
+
+UDP
+
+- User Datagram Protocol
+- Un-reliable connection-less based protocol
+- Low Overhead
+- Used for VOIP, Online Games, Streaming
+
+UDP Capitalize
+
+- Let's create the same program as before this time using a UDP connection.
+- udpServer.py and udpClient.py
+- You will notice we use recvfrom() and sendto().
+ This is because UDP is Connectionless, we need to tell the data where to go when we send it.
+
+Non Blocking
+
+- It is possible and often needed, to set a socket to non blocking. This means that the program will not sit and wait for data to be received.
+- Often used in Real-time programs
+- When a task cannot be spread over threads.
+- Always throws and error if there is nothing in the buffer!!!!!
