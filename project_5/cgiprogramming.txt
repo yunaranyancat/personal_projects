@@ -1,0 +1,84 @@
+Preamble
+
+- this tutorial is about web interfacing, having a basic understanding of HTML and how it works will be very helpful.
+- if you have done any PHP before, this will be familiar however in Python.
+
+What is CGI?
+
+- CGI stands for Common Gateway Interface
+- CGI is the standard for programs to interface with HTTP servers. (Some other servers too.)
+- this means we can take information from things like Forms.
+- CGI scripts generally go in a web server's cgi-bin directory.
+
+What is CGI Programming?
+
+- CGI Programming is writing dynamically generating WebPages that respond to user input or WebPages that interact with software on the server.
+- Things like Dropbox use python for it's web interface.
+
+Setup
+
+- To be able to get our CGI to work, we need a web server we can play with.
+- If you have your own web server and want to use that go ahead.
+- If you don't, let's quickly set up and apache2 web server.
+- To install Apache2(which should be a standard package in almost all linux distro's) we use:
+ sudo apt-get install apache2
+- Then we must set the web server permissions to allow cgi programs to execute.
+ For simplicity, we will allow cgi to execute in the root directory.
+
+ ******************************************
+ edit /etc/apache2/sites-available/000-default.conf
+
+ DocumentRoot /var/www/html -> /var/www/html
+ add <Directory /var/www/>
+   Options ExecCGI Indexes FollowSymLinks Multiviews
+   AllowOverride None
+   Oder allow,deny
+   allow from all
+   AddHandler cgi-script .py
+ </Directory>
+
+ Restart webserver : sudo service apache2 restart
+
+ ****************************************
+
+ Basic CGI python script
+
+ - Let's create a basic script that just prints out that it worked and print hello world 5 times.
+ - Let's call it hello.py
+ - Must have a line telling the web server where python is installed eg.
+ #!/usr/bin/python
+ - We also have to change the file permissions so it can execute (chmod 755 hello.py)
+
+ - create hello.py
+ - sudo chmod 755 hrllo.py
+ - sudo cp hello.py /var/www/
+ - sudo a2enmod cgi
+
+ The cgi module
+
+ - The cgi module contains a lot of declarations and does a lot of initializing in the background
+ - Because of this NEVER use:
+  from cgi import ...
+ - Provides us with methods to get POST and GET requests from the web server
+ - As well as a few other methods for parsing data
+
+ Using Form data
+ - The python sgi module handles POST and GET with the same method.
+ - cgi.FieldStorage() this method will return a FieldStorage object that allows us to get data from a submitted form
+ - We can use the FieldStorage object like a python dictionary or we can use the getvalue() method.
+  (I suggest not using this method as it will crash of there is more than one field with the same name, but for now, it's fine)
+ - Alternative methods are getfirst() and getlist() (Safe)
+
+ Simple hello 'insert name' program
+ - Let's create a simple script that grabs the entered name from POST and prints out hello to that name.
+ - Let's just modify our hello.py file.
+ - Then lets add a check box to see if they are happy or sad or both.
+
+Notes
+
+- When debugging your code you can use the cgitb(cgi traceback) module to output errors to the page
+- Import cgitb
+ cgitb.enable()
+- The cgitb.enable() can be modified so that the error messages are saved to a file rather than output to users of your script. This can be done with:
+ cgitb.enable(display=0, logdir="/path/")
+- cgi.escape(). try to always escape user input if you plan to use it
