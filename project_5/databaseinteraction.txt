@@ -1,0 +1,64 @@
+Preamble
+- This tutorial is about Database Interactio, so I will assume you know and understand SQL.
+- If you aren't familiar with using SQL statements to interact with a database but want to use a database , I would highly recommend learning some basic SQL.
+
+What is DB Interaction?
+- Database interaction is the connecting to and querying of a database. This can be a database on a webserver, database hosted on the local machine or even database files.
+- We use the SQL language to talk to the database and we can use python to send those commands to the database.
+
+Types of database's supported
+- Python supports many types of database with several different modules for each type. All which follow the same standard and use the same methods.
+- Some DBs include: MySQL, mSQL, GadFly, Microsoft SQL Server, Oracle, Sqlite and many more.
+
+- Methods
+ - Most modules adhere to the standard meaning they use the same methods
+ - connect(info) - to connect to the database
+ - cursor() - will get a cursor object ready to execute queries
+ - execute(sql) - an sql query
+ - fetchone() - returns just one row
+ - fetchall() - returns a list of lists
+ - commit() - saves the changes on the database
+ - rollback() - rolls all temporary changes back
+ - close() - closes the connection up
+ - executemany() - executes a parameterized query
+ - executescript() - executes a string of multiple SQL statements separated by a semi-colon ';'
+
+Setup
+
+- We are going to use sqlite as it comes with linux and is simple to install and use. Sqlite is a database stored in a single file.
+- To install Sqlite3 we use:
+sudo apt-get install sqlite3
+- Once installed we can create a database by using: sqlite3 test.db
+
+Basic Version Query
+
+- Let's create a basic program that connects to our sqlite3 database file and SELECT the version number
+- Let's call it dbtest.py
+
+Making Changes
+
+- Let's now modify our program to create a table of pets and prices. Then look at using exception handling to protect our database.
+- Remember commit()
+- Let's modify our dbtest.py
+
+Multiple Queries
+
+- The Python database standard supports making multiple queries with one command. This can either be through the executescript() method which takes a string of sql statements separated by a ';' semicolon.
+- Or we can use parameterized sql statement executemany(tempalte,data). This takes a string template of the query as the first argument and then a tuple of tuples of data to use with the template.
+
+EG. executemany("INSERT INTO pets VALUES(?,?,?)",data)
+
+Inserting many
+
+- Let's modify our existing code to insert all of the data with just one query.
+- Let's modify dbtest.py
+
+Notes
+
+- These examples should work on all databases. Only the connect method and module that you import will need to be changed.
+- Never use (it's insecure):
+ symbol = 'data'
+ execute("SELECT * FROM table WHERE symbol = '%s'" % symbol)
+ Use:
+ data = ('data',)
+ execute("SELECT * FROM table WHERE symbol =?",data)
