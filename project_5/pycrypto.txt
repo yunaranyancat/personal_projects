@@ -1,0 +1,39 @@
+Preamble
+- This tutorial is about using Cryptographic algorithms to encrypt data with python. having a basic understanding of python is required.
+- Having some knowledge of Cryptography will be helpful but not necessary to follow along.
+- If you are running on Windows, pyCrypto is available on the python package index.
+
+What is PyCrypto?
+- PyCrypto's go to package for Cryptographic modules.
+- Contains Symmetric and Asymmetric Ciphers, Hashing algorithms, Cryptographic Protocols, Public-key encryption and signature algorithms and it's own crypto-strong random functions.
+
+What is Cryptography?
+- Typically Cryptography refers to encryption of plaintext(readable) into ciphertext(unreadable) and the reverse, decryption of ciphertext into plaintext.
+- A Cipher is used with a Key which will produce what looks like a random output. The strength of an algorithm is measured in how easily an adversary can break the encryption
+
+AES
+- Advanced Encryption Standard
+- Symmetric Cipher
+- 16 byte block size
+- The keys can be 128, 192, or 256 bits long.
+- Has many block ciphers modes. http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation
+
+IV
+- Stands for Initialization Vector
+- Used to randomize and produce distinct ciphertexts for certain cipher modes.
+- You should not reuse the same IV for two separate encryptions with the same key/password.
+- The IV can be known for most modes.
+
+Hashing a Password
+- Because a cipher requires a key of certain length it's useful to hash the users password to produce the same length key every time.
+- SHA256 produces a 16 byte output and works great with AES-256.
+
+File encrypt program
+- Let's create a file encrypting and decrypting program.
+- Let's call it encrypt.py
+
+Notes
+
+- Not all of the ciphers and hashes in the pyCrypto library are considered safe. Make sure you at least look up the correct algorithm to be used for your situation.
+- All of the algorithms are open source and you can read them.
+- Never try to create your own algorithm unless you know what you are doing and have a team of experts.
