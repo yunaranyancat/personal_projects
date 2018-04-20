@@ -1,0 +1,45 @@
+What is Pickle?
+
+- "Pickling" is the process of converting a python object hierarchy into a byte stream to be written to file. Also known as Serialization.
+- "Unpickling" is the process in reverse turning a byte stream back into a working python project.
+- Has a transparent C counter-part , will be used if possible that can be up to 1000 times faster.
+
+What can it do?
+
+- Pickle can store and reproduce dictionaries and lists very easily.
+- Stores object attributes and restores them back to the same State.
+
+What can't it do?
+
+- It does not save an object code! Only it's attributes values.
+- It cannot store file handles or connection sockets.
+
+Methods
+
+- dump(object, file, protocol)
+Saves the object to the file stream with the optional parameter of protocol(use pickle.HIGHEST_PROTOCOL if you can.)
+
+- load(file)
+Loads the next object in the file stream and returns the object. (Will detect the protocol)
+
+Example
+
+- Let's create a program called pickling.py
+- We will create a dictionary and a list, print them out and then save them to a file called save.pickle- We will then re load them into new objects and print them out and see if they are the same.
+
+A custom class
+
+- You can save an object of a custom class that you made into a file and load it in any of your programs so long as the program can access your class to import it when loading the data in.
+- Make sure your class is in the same directory or installed to your python lib folder.
+
+Player state save
+
+- Let's create a custom class called Player, it will store an id, name, health and a list of items.
+- Then we will save it and load it up into a separate object.
+- Let's call it Player.py and savedata.py
+
+Notes
+
+- Pickle is cross-platform, but can have issues with different python versions!!
+- If you use the dump function more than once on one file, you must use the load function just as many times.
+- NEVER TRUST pickled data from an un-trusted source! Malicious objects can be Unpickled and cause HAVOC!!
