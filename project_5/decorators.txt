@@ -1,0 +1,69 @@
+What are decorators?
+
+- Decorators change or add a behavior to a function.
+- Fancy word for overwriting functions with a newer better one.
+
+Nesting Functions
+
+- In Python , we can nest functions inside other functions.
+- functions without their () are treated like pointers to that function. Really in the background Python just stores everything as an object.
+
+Function Closure
+
+- When a function is defined in non global scope like our second function.
+- The function stores the value of the variables it used at the time of definition.
+- You can check if a function has closure variables by outputting a functions __closure__ infp.
+print(myfun.__closure__)
+
+Decorators
+
+- In order to make a decorator, we simply return add onto the end of the original function, add something before the original or make a choice to do something completely different;
+- There is a shorthand for declaring a decorator by using the @decoratorName syntax before a function.
+
+FileExists Example
+
+- Let's build a nested function that will decorate our function that we pass in to check if a file exists before trying to run our function.
+- It's a very simple and hopefully easy to follow example.
+- Decorators can be confusing!!!
+
+Taking unknown parameters
+
+- Sometimes you may want to take an unknown amount of parameters.
+- Functions com in all shapes and sizes
+
+- myFunc(*args,**kwargs)
+- Takes a tuple of any length(*args)
+ or a dictionary of keywords. (**kwargs)
+
+Output Parameters For Tests
+
+- Let's create a simple decorator that prints out all the arguments passed into a function we create.
+
+Decorator Parameters
+
+- You can also pass parameters into your decorator function to modify what your decorator does.
+- This is done by adding another nested function
+- Essentially double wrapping the one function
+
+Decorator with Parameters
+
+- Let's build a decorator that wraps strings in HTML tags ready for placing onto a web page.
+- We will pass in what tags we want to add into the decorator like so:
+  @AddTags("p","b")
+- Thus wrapping as string like:
+ "<p><b>blahblah</b></p>"
+
+Final Notes
+
+- Python's functools library provides useful tools for debugging decorators as well as in-built decorators you can use.
+- You can also make whole classes decorate a function by implementing the __call__ special method.
+
+- A decorator class looks like the following:
+
+ class aDecorator:
+  def __init__(self,func):
+    print("When Decorated Function Defined")
+  def __call__(self):
+  print("When Decorated Function Called")
+
+  
