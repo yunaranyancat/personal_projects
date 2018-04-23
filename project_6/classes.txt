@@ -1,0 +1,32 @@
+What's a class?
+
+- A class is referred to as a Data Structure or Type.
+- Holds data and behaviors. These are called Attributes and Methods.
+
+How do we make one?
+
+- Python adds as little new syntax as possible for classes.
+- for now we will only look at the keyword class.
+- Syntax:
+  class MyClass:
+
+- This will create a class called MyClass.
+
+Atttributes
+- Variables that belong to a class.
+- Always public (can be accessed after the '.')
+- MyClass.MyAttribute
+
+Methods
+- Functions that belong to a class.
+- Either does somethign to the classes data OR does something with the classes data.
+
+Objects
+- Objects are much like a variable, however , it holds a whole classes information inside.
+- Can create multiple instances of an object/class, Hence 'Objects';
+- Can store and manipulate information inside the object, much like we do with the string class/object.
+
+Let's create a class
+- We will make a class called MyClass
+- Inside we will store a favorite number and a name.
+- Let's call our program myclass.py
