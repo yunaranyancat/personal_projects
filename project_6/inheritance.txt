@@ -1,0 +1,27 @@
+Inheritance
+- concept of inheriting features from another class.
+- useful if two or more classes share common attributes or methods.
+- can use methods from the super class
+- a more organized and modular way to design programs (not all programs though).
+
+Terminology
+- Base class or Super class - The class that is inherited from.
+- Subclass - inherits from a base/super class
+- You can have subclasses of other subclasses.
+
+Let's try it out
+pets.py
+
+Polymorphism
+- Concept of dynamic methods chosen at runtime
+- Subclasses must override the base classes method
+- Useful for lists of different types of subclasses.
+
+Adding Polymorphism
+- A talk method which will do something different for each pet.
+- The list will be a list of Pet classes because both Dogs and Cats are Pet classes.
+- We're also adding dogs.
+
+Multiple Inheritance
+- You can inherit from more than one base class by separating them with a comma
+- Be careful, if two or more base classes share the same attribute names or method names you can get some bad behavior.
