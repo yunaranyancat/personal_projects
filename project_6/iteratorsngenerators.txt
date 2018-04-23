@@ -1,0 +1,22 @@
+Iterators
+
+- used to loop through the items of a container
+- You have used them before!
+ for element in [1, 2, 3]
+- Python uses the __iter__() method to return an iterator object of the class.
+- The iterator object then uses the __next__() method to get the next item.
+- The for loop stops when the StopIteration Exception is raised.
+
+Let's try it out
+revserse.py
+
+Generators
+- Another way of creating iterators
+- Uses a function rather than a separate class
+- Generates the background code for the next() and iter() methods.
+- Uses a special statement called yield which saves the state of the generator and set a resume point for when next() is called again.
+
+Generator Expressions
+- Generator Expressions are a unique feature that python uses.
+- Allows for iteration to be handled in a single line expression.
+- Uncommonly used by a lot of programmers.
