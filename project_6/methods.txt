@@ -1,0 +1,62 @@
+What's a method?
+
+- Basically a function that belongs to a class
+- Basic Methods (can almost do anything)
+
+- Special Methods
+  Basic(initialization, new and delete)
+  descriptors(get, set, getAttribute...)
+  container(for emulating list like classes)
+  numeric(overriding +-*/% operators)
+
+- All methods require the self parameter.
+methodname(self)
+
+Basic and Special
+
+- We will look at basic methods as well as special methods.
+- We will build a two dimensional vector class
+- Vector2D
+
+Basic Method
+- Basic methods work like normal functions
+- Can have as many parameters as needed.
+- Can return things if needed.
+
+Vector2D
+- File called vector2d.py
+- Make a 2D Vector class (x and y coordinates)
+
+Special Methods
+- We can make it better!
+- Making interactions with the class much more nicer.
+- Special methods are recognized methods that python uses for a lot of its inbuilt features.
+- From initialization to allowing use to use the print function on our class.
+
+Initialization
+- Important feature of OOP
+- Allows for creation of attributes or setting of values.
+- Allows all object creation to be done in one line.
+
+Discussion
+- Code is much smaller and neater.
+- Still completes the same task as our last snippet of code.
+- A vector class still needs more functionality.
+- Tools for adding, subtracting, multiplying, dividing as well as some vector specific methods for getting normals or angles of a vector.
+
+Numeric Methods
+- Numeric methods override pythons operators.
+- (+, - , *, /, %, ...)
+- Even overriding shortcuts is possible
+- (+=, -=, etc..)
+
+Adding numerics
+- Let's add all these features to our class.
+
+Method Object
+- The ability to store a function in a variable
+- Has many uses, but not always so obvious.
+- Think of it as link to a function.
+
+Using Method Object
+- Let's add a method object and see what it does.
