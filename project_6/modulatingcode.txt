@@ -1,0 +1,21 @@
+Modulating
+- process of splitting up our programs into multiple files
+- allows for complex packages to be made
+- great for writing tool packs for other developers
+
+Designing
+- Design with multiple files in mind
+- You will learn what works for you and what doesn't
+- Try to keep common classes in their own file.
+- Make sure each file has a purpose.
+- We use the import keyword or alternatively the from keyword.
+
+Let's try it out.
+vector2dmod.py
+mod.py (this will use the vector2dmod.py file/module)
+
+Packages
+- Hierarchical structure to large compilations of modules
+- Eg: Physics engines, networking tools or even things like GUI packages.
+- There will be a package.zip with a sample of what a package looks like.
+- If you are interested in making your own packages, reading the comments in each .py files will be highly beneficial.
