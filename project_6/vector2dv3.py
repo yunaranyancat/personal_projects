@@ -1,6 +1,6 @@
 import math
 
-class Vector2D():
+class Vector2D:
 
     def __init__(self, x, y):
         self.x = x
