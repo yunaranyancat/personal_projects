@@ -1,6 +1,10 @@
-# import socket
-# print (socket.gethostbyname(socket.gethostname()))
+import ping, socket
 import urllib.request as ulibr
-ip = ulibr.urlopen('./publicIP.php').read()
+
+#print (socket.gethostbyname(socket.gethostname()))
+target = "www.dataandroses.com/"
+print (socket.gethostbyname_ex(target))
+
+#ip = ulibr.urlopen('./publicIP.php').read()
 
 #using curl command
