@@ -58,11 +58,14 @@ def main():
     else:
         if args.decrypt:
             mode = "decrypt"
+            print("Decrypting file..")
             caesar_cipher(getFileName,getResultFile,mode)
+            anyKey = input("Decryption finished.. Press any key to exit.")
         elif args.encrypt:
             mode = "encrypt"
+            print("Encrypting file...")
             caesar_cipher(getFileName,getResultFile,mode)
-
+            anyKey = input("Encryption finished.. Press any key to exit.")
 
 if __name__ == '__main__':
     main()
