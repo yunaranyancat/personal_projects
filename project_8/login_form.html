@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>  Login Page </title>
+
+    <style>
+      .login{
+        display: inline-block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 200px;
+        height: 250px;
+        margin: auto;
+        background-color:  #05f9d8 ;
+        border-radius:25px;
+        border-style: solid;
+      }
+
+      .btn-style{
+        height:40px;
+        border : solid 2px #ffffff;
+        border-radius : 20px;
+        font-size : 20px;
+        color : #ffffff;
+        padding : 0px 20px;
+        background-color : black ;
+        width : 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='login'>
+      <form method='post'>
+        <p> Username  : <input type='text' name='name' /> </p>
+        <p> Password  : <input type='password' name='password' /> </p>
+        <input class='btn-style' type='submit' name='submit' value='Log in'/>
+      </form>
+    </div>
+  </body>
+</html>
