@@ -1,6 +1,14 @@
 #!/usr/bin/python3
 
 import cgi
+import time
+from selenium import webdriver
+from selenium.common.keys import Keys
+
+localhost = '127.0.0.1'
+
+driver = webdriver.Firefox()
+driver.get(localhost)
 
 print("Content-type:text/html\r\n\r\n")
 print("<html><head>")
@@ -49,6 +57,9 @@ if form.getvalue("name"):
 if form.getvalue("password"):
     password = form.getvalue("password")
     #print(password)
+
+#time.sleep(3)
+#driver.refresh()
 
 print("""
 <div class='login'>
