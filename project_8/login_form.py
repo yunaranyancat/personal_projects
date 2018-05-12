@@ -7,8 +7,8 @@ from selenium.common.keys import Keys
 
 localhost = '127.0.0.1'
 
-driver = webdriver.Firefox()
-driver.get(localhost)
+# driver = webdriver.Firefox()
+# driver.get(localhost)
 
 print("Content-type:text/html\r\n\r\n")
 print("<html><head>")
@@ -49,6 +49,8 @@ print("""<style>
 
 print("</head><body>")
 
+list_of_data = [[]]
+
 form = cgi.FieldStorage()
 
 if form.getvalue("name"):
@@ -58,6 +60,9 @@ if form.getvalue("password"):
     password = form.getvalue("password")
     #print(password)
 
+list_of_data.append([name,password])
+
+print(list_of_data)
 #time.sleep(3)
 #driver.refresh()
 
