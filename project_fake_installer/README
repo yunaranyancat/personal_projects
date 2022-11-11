@@ -1,0 +1,22 @@
+ _._     _,-'""`-._
+(,-.`._,'(       |\`-/|
+    `-.-' \ )-`( , o o)
+          `-    \`_`"'-
+          
+Shitty obfuscated fake installer.
+Note : It's obfuscated because I want to test pyarmor and my code is shitty.
+
+Can be used to waste time
+
+Installation
+1. Download project file and go inside the directory
+2. run pip install -r requirements.txt
+3. run python install.py [option]
+
+For the [option] there are three types of string you can use:
+
+basic - took exactly 15 minutes to complete
+
+complete - took exactly 30 minutes to complete
+
+advanced - took exactly 45 minutes to complete
